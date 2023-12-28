@@ -6,5 +6,7 @@ public class User {
     
     public string IdentityId { get; set; }
     
+    public string Email { get; set; }
     public string CachedUsername { get; set; }
+    
 }

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using Sharc.Core.ExtensionMethods;
 
 namespace Sharc.Core.Entities; 
 
@@ -17,6 +18,9 @@ public class Event {
     public DateTime EndTime { get; set; }
     // DTSTART
     public DateTime StartTime { get; set; }
+    
+    // RRULE
+    public RecurrenceRule? RecurrenceRule { get; set; }
 
     // ATTENDEE
     public User[] Attendees { get; set; }
@@ -29,20 +33,20 @@ public class Event {
     }
 
     public override string ToString() {
-        return $"""
+        var s = $"""
                 BEGIN:VEVENT
-                UID:{DateTimeToRFCTime(Created)}-{Id}
+                UID:{Created.ToRFCTimeString()}-{Id}
                 CN:{Name}
-                DTSTAMP:{DateTimeToRFCTime(Created)}
-                DTSTART:{DateTimeToRFCTime(StartTime)}
-                DTEND:{DateTimeToRFCTime(EndTime)}
+                DTSTAMP:{Created.ToRFCTimeString()}
+                DTSTART:{StartTime.ToRFCTimeString()}
+                DTEND:{EndTime.ToRFCTimeString()}
                 SUMMARY:{Summary}
                 DESCRIPTION:{Description}
-                END:VEVENT
                 """;
-    }
+        if (RecurrenceRule is not null) {
+            s += RecurrenceRule;
+        }
 
-    private static string DateTimeToRFCTime(DateTime time) {
-        return time.ToUniversalTime().ToString("yyyyMMddTHHmmss");
+        return s + "END:VEVENT";
     }
 }

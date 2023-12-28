@@ -1,0 +1,6 @@
+@Sharc.Server_HostAddress = http://localhost:5173
+
+GET {{Sharc.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

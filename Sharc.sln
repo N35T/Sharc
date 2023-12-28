@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharc.Server", "Sharc.Server\Sharc.Server.csproj", "{01AA43A3-F1EE-4653-B2D2-644428C56CD4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharc.Core", "Sharc.Core\Sharc.Core.csproj", "{1EE48160-6457-4E87-97F2-ED8E91554CCF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{01AA43A3-F1EE-4653-B2D2-644428C56CD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01AA43A3-F1EE-4653-B2D2-644428C56CD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01AA43A3-F1EE-4653-B2D2-644428C56CD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EE48160-6457-4E87-97F2-ED8E91554CCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EE48160-6457-4E87-97F2-ED8E91554CCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EE48160-6457-4E87-97F2-ED8E91554CCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EE48160-6457-4E87-97F2-ED8E91554CCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -22,7 +22,7 @@ public class Event {
     public RecurrenceRule? RecurrenceRule { get; set; }
 
     // ATTENDEE
-    public User[] Attendees { get; set; }
+    public EventUsers[] Attendees { get; set; }
 
 
     [NotMapped]
@@ -51,9 +51,9 @@ public class Event {
 
         foreach (var attendee in Attendees) {
             builder.Append("\nATTENDEE;CN=");
-            builder.Append(attendee.CachedUsername);
+            builder.Append(attendee.User.CachedUsername);
             builder.Append(":mailto:");
-            builder.Append(attendee.Email);
+            builder.Append(attendee.User.Email);
             builder.Append('\n');
         }
 

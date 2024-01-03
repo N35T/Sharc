@@ -9,6 +9,8 @@ public class ApplicationDbContext : DbContext {
     public DbSet<Event> Events { get; set; }
     public DbSet<User> Users { get; set; }
 
+    public DbSet<EventUsers> EventUsers { get; set; }
+    
     public ApplicationDbContext(DbContextOptions opt) : base(opt) {
     }
 
@@ -17,9 +19,27 @@ public class ApplicationDbContext : DbContext {
             .HasKey(e => e.Id);
         modelBuilder.Entity<User>()
             .HasKey(e => e.Id);
-        modelBuilder.Entity<Event>()
-            .HasMany<User>(e => e.Attendees)
-            .WithMany();
+        
+        modelBuilder.Entity<EventUsers>()
+            .HasOne(e => e.Event)
+            .WithMany(e => e.Attendees)
+            .HasForeignKey(e => e.EventId);
+
+        modelBuilder.Entity<EventUsers>()
+            .HasOne(e => e.User)
+            .WithMany()
+            .HasForeignKey(e => e.UserId);
+
+        modelBuilder.Entity<EventUsers>()
+            .HasKey(e => new {e.UserId, e.EventId});
+
+        modelBuilder.Entity<EventUsers>()
+            .Navigation(e => e.Event)
+            .AutoInclude();
+
+        modelBuilder.Entity<EventUsers>()
+            .Navigation(e => e.User)
+            .AutoInclude();
         
         ConfigureEventProperties(modelBuilder);
         ConfigureUserProperties(modelBuilder);
@@ -33,10 +53,6 @@ public class ApplicationDbContext : DbContext {
 
         modelBuilder.Entity<User>()
             .Property(e => e.Email)
-            .IsRequired();
-
-        modelBuilder.Entity<User>()
-            .Property(e => e.IdentityId)
             .IsRequired();
     }
 

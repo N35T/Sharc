@@ -4,8 +4,6 @@ public class User {
     
     public Guid Id { get; set; }
     
-    public string IdentityId { get; set; }
-    
     public string Email { get; set; }
     public string CachedUsername { get; set; }
     

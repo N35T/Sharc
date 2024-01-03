@@ -33,9 +33,9 @@ public class ApplicationDbContext : DbContext {
         modelBuilder.Entity<EventUsers>()
             .HasKey(e => new {e.UserId, e.EventId});
 
-        modelBuilder.Entity<EventUsers>()
-            .Navigation(e => e.Event)
-            .AutoInclude();
+        //modelBuilder.Entity<EventUsers>()
+          //  .Navigation(e => e.Event)
+            //.AutoInclude();
 
         modelBuilder.Entity<EventUsers>()
             .Navigation(e => e.User)

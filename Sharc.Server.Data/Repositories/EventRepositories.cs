@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Sharc.Core.Abstractions;
 using Sharc.Core.Entities;
+using Sharc.Core.Exceptions;
 using Sharc.Core.Repositories;
 using Sharc.Server.Data.Persistence;
 
@@ -16,7 +17,7 @@ internal class EventRepositories : IEventRepository {
 
     public async Task<Result<Event>> AddEventAsync(Event eventModel) {
         _dbContext.Events.Add(eventModel);
-        return await _dbContext.SaveChangesAsync() > 0 ? eventModel : new Exception();
+        return await _dbContext.SaveChangesAsync() > 0 ? eventModel : new EventOperationException("Failed adding the event");
     }
 
     public Task<Result> AddUsersToEventAsync(Guid eventId, params User[] users) {
@@ -30,7 +31,7 @@ internal class EventRepositories : IEventRepository {
                 UserId = e
         }));
 
-        return await _dbContext.SaveChangesAsync() > 0;
+        return await _dbContext.SaveChangesAsync() > 0 ? true : new EventOperationException("Failed adding the users to the event");
     }
 
     public Task<List<Event>> GetUserEventsAsync(Guid userId) {
@@ -52,28 +53,28 @@ internal class EventRepositories : IEventRepository {
     public async Task<Result<Event>> UpdateEventAsync(Event eventModel) {
         _dbContext.Events.Update(eventModel);
 
-        return await _dbContext.SaveChangesAsync() > 0 ? eventModel : new Exception();
+        return await _dbContext.SaveChangesAsync() > 0 ? eventModel : new EventOperationException("Failed updating the event");
     }
 
     public async Task<Result> DeleteEventAsync(Guid eventId) {
         var eventModel = await _dbContext.Events.FindAsync(eventId);
         if (eventModel is null) {
-            return false;
+            return new EventOperationException("Could not find the event with id " + eventId);
         }
 
         _dbContext.Remove(eventModel);
-        return await _dbContext.SaveChangesAsync() > 0;
+        return await _dbContext.SaveChangesAsync() > 0 ? true : new EventOperationException("Failed deleting the event");
     }
 
     public async Task<Result> RemoveUserFromEventAsync(Guid eventId, Guid userId) {
         var eventUser = await _dbContext.EventUsers.FindAsync(userId, eventId);
 
         if (eventUser is null) {
-            return false;
+            return new UserNotFoundException("User with id " + userId + " is not part of event with id " + eventId);
         }
 
         _dbContext.Remove(eventUser);
-        return await _dbContext.SaveChangesAsync() > 0;
+        return await _dbContext.SaveChangesAsync() > 0 ? true : new EventOperationException("Failed removing user from event");
     }
 
     public Task<Result> RemoveUserFromEventAsync(Guid eventId, User user) {

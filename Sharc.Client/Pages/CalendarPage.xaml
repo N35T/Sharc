@@ -12,7 +12,8 @@
         AllowedViews="Day,Week,Month,Agenda"
         View="Month"
         >
-        
+        <!--https://www.syncfusion.com/forums/184292/where-is-scheduler-adding-editing-appointment-docs-demo-->
+        <!--https://www.syncfusion.com/tutorial-videos/maui/scheduler-->
         
     </scheduler:SfScheduler>
 </ContentPage>

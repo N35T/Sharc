@@ -7,11 +7,11 @@ using Sharc.Server.Data.Persistence;
 
 namespace Sharc.Server.Data.Repositories; 
 
-internal class EventRepositories : IEventRepository {
+internal class EventRepository : IEventRepository {
 
     private readonly ApplicationDbContext _dbContext;
     
-    public EventRepositories(ApplicationDbContext dbContext) {
+    public EventRepository(ApplicationDbContext dbContext) {
         _dbContext = dbContext;
     }
 

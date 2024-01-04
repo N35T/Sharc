@@ -38,8 +38,8 @@ internal class EventRepository : IEventRepository {
         return _dbContext
             .EventUsers
             .Include(e => e.Event)
-            .Where(e => e.Event.IsPublic || e.UserId == userId)
-            .Select(e => e.Event)
+            .Where(e => e.Event!.IsPublic || e.UserId == userId)
+            .Select(e => e.Event!)
             .Include(e => e.Attendees)
             .ToListAsync();
     }

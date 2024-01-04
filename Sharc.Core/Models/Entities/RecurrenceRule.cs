@@ -1,12 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using Sharc.Core.Abstractions.Interfaces;
 using Sharc.Core.ExtensionMethods;
 using Sharc.Core.Models.Enums;
 using Sharc.Core.Models.Structs;
 
 namespace Sharc.Core.Models.Entities; 
 
-public class RecurrenceRule {
+public class RecurrenceRule : ICalendarFormatter {
 
     public Frequency Frequency { get; set; }
     public DateTime? Until { get; set; }
@@ -116,7 +117,7 @@ public class RecurrenceRule {
         }
     }
 
-    public override string ToString() {
+    public string ToICalendar(bool privateEvent) {
         var builder = new StringBuilder();
         builder.Append($"RRULE:FREQ={Frequency}");
         

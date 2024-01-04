@@ -1,14 +1,20 @@
-﻿using Sharc.Core.ExtensionMethods;
+﻿using Sharc.Core.Abstractions.Interfaces;
+using Sharc.Core.ExtensionMethods;
 using Sharc.Core.Models.Enums;
 
 namespace Sharc.Core.Models.Structs; 
 
-public struct ByDayProperty {
+public struct ByDayProperty : ICalendarFormatter {
     // 1Fr would be every first friday
     public Weekday Weekday { get; set; }
     public int? Ordinal { get; set; }
 
+
     public override string ToString() {
+        return ToICalendar(false);
+    }
+
+    public string ToICalendar(bool privateEvent) {
         if (Ordinal is null) {
             return Weekday.ToString();
         }

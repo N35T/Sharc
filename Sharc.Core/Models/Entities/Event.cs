@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using Sharc.Core.Abstractions.Interfaces;
 using Sharc.Core.ExtensionMethods;
 
 namespace Sharc.Core.Models.Entities; 
 
-public class Event {
+public class Event : ICalendarFormatter {
     
     public Guid Id { get; set; }
     // DESCRIPTION
@@ -33,7 +34,7 @@ public class Event {
         set => EndTime = StartTime.Add(value);
     }
 
-    public override string ToString() {
+    public string ToICalendar(bool privateEvent) {
         var builder = new StringBuilder($"""
                 BEGIN:VEVENT
                 UID:{Id}
@@ -45,17 +46,14 @@ public class Event {
                 TRANSP:TRANSPARENT
                 STATUS:CONFIRMED
                 """);
+        builder.Append('\n');
         if (RecurrenceRule is not null) {
-            builder.Append('\n');
-            builder.Append(RecurrenceRule);
+            builder.Append(RecurrenceRule.ToICalendar(privateEvent));
             builder.Append('\n');
         }
 
         foreach (var attendee in Attendees) {
-            builder.Append("\nATTENDEE;CN=");
-            builder.Append(attendee.User.CachedUsername);
-            builder.Append(":mailto:");
-            builder.Append(attendee.User.Email);
+            builder.Append(attendee.ToICalendar(privateEvent));
             builder.Append('\n');
         }
 

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sharc.Client.Pages.CalendarPage"
+             xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
+             xmlns:local="clr-namespace:Sharc.Client.Pages"
+             Title="CalendarPage">
+
+    <scheduler:SfScheduler
+        ShowWeekNumber="True"
+        FirstDayOfWeek="Monday"
+        AllowedViews="Day,Week,Month,Agenda"
+        View="Month"
+        >
+        
+        
+    </scheduler:SfScheduler>
+</ContentPage>

@@ -36,7 +36,7 @@ public class Event {
     public override string ToString() {
         var builder = new StringBuilder($"""
                 BEGIN:VEVENT
-                UID:{Created.ToRFCTimeString()}-{Id}
+                UID:{Id}
                 DTSTAMP:{Created.ToRFCTimeString()}
                 DTSTART:{StartTime.ToRFCTimeString()}
                 DTEND:{EndTime.ToRFCTimeString()}

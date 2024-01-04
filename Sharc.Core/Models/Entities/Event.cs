@@ -24,6 +24,8 @@ public class Event {
     // ATTENDEE
     public EventUsers[] Attendees { get; set; }
 
+    public bool IsPublic { get; set; } = false;
+
 
     [NotMapped]
     public TimeSpan Duration {

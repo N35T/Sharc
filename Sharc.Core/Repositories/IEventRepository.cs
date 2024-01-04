@@ -1,5 +1,5 @@
 ﻿using Sharc.Core.Abstractions;
-using Sharc.Core.Entities;
+using Sharc.Core.Models.Entities;
 
 namespace Sharc.Core.Repositories; 
 

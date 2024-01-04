@@ -1,4 +1,4 @@
-﻿namespace Sharc.Core.Entities; 
+﻿namespace Sharc.Core.Models.Entities; 
 
 public class User {
     

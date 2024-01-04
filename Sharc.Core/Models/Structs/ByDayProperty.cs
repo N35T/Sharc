@@ -1,9 +1,7 @@
-﻿using System.Text;
-using Microsoft.VisualBasic.CompilerServices;
-using Sharc.Core.Enums;
-using Sharc.Core.ExtensionMethods;
+﻿using Sharc.Core.ExtensionMethods;
+using Sharc.Core.Models.Enums;
 
-namespace Sharc.Core.Structs; 
+namespace Sharc.Core.Models.Structs; 
 
 public struct ByDayProperty {
     // 1Fr would be every first friday

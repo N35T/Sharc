@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Sharc.Core.Entities;
+using Sharc.Core.Models.Entities;
 
 namespace Sharc.Server.Data.Persistence; 
 

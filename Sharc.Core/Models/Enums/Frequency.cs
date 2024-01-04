@@ -1,4 +1,4 @@
-﻿namespace Sharc.Core.Enums; 
+﻿namespace Sharc.Core.Models.Enums; 
 
 public enum Frequency {
     SECONDLY,

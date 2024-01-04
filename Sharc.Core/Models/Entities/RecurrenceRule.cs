@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Immutable;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
-using Sharc.Core.Enums;
 using Sharc.Core.ExtensionMethods;
-using Sharc.Core.Structs;
+using Sharc.Core.Models.Enums;
+using Sharc.Core.Models.Structs;
 
-namespace Sharc.Core.Entities; 
+namespace Sharc.Core.Models.Entities; 
 
 public class RecurrenceRule {
 

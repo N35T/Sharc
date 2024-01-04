@@ -1,4 +1,4 @@
-﻿using Sharc.Core.Enums;
+﻿using Sharc.Core.Models.Enums;
 
 namespace Sharc.Core.ExtensionMethods; 
 

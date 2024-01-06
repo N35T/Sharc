@@ -60,7 +60,12 @@
         <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="Syncfusion.Maui.Scheduler" Version="24.1.44" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Sharc.Core\Sharc.Core.csproj" />
     </ItemGroup>
 
     <ItemGroup>

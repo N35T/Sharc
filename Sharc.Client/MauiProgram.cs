@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using Sharc.Client.Pages;
+using Sharc.Client.Services;
 using Syncfusion.Maui.Core.Hosting;
 
 namespace Sharc.Client;
@@ -8,6 +10,9 @@ public static class MauiProgram {
         var builder = MauiApp.CreateBuilder();
         builder.ConfigureSyncfusionCore();
         Licensing.AddLicense();
+
+        builder.Services.AddScoped<EventService>();
+        builder.Services.AddTransient<CalendarPage>();
 
         builder
             .UseMauiApp<App>()

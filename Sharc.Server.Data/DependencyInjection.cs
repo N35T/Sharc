@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Sharc.Core.Repositories;
+using Sharc.Server.Core.Repositories;
 using Sharc.Server.Data.Persistence;
 using Sharc.Server.Data.Repositories;
 

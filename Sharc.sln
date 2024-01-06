@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sharc.Server.Data", "Sharc.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sharc.Client", "Sharc.Client\Sharc.Client.csproj", "{0E380267-FAF7-43B8-90A9-EF11FE192308}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharc.Server.Core", "Sharc.Server.Core\Sharc.Server.Core.csproj", "{5E02BB67-8AD6-44D8-87A7-C15E197B7483}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +36,10 @@ Global
 		{0E380267-FAF7-43B8-90A9-EF11FE192308}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{0E380267-FAF7-43B8-90A9-EF11FE192308}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E380267-FAF7-43B8-90A9-EF11FE192308}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E02BB67-8AD6-44D8-87A7-C15E197B7483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E02BB67-8AD6-44D8-87A7-C15E197B7483}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E02BB67-8AD6-44D8-87A7-C15E197B7483}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E02BB67-8AD6-44D8-87A7-C15E197B7483}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

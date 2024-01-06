@@ -1,7 +1,7 @@
 ﻿using Sharc.Core.Abstractions;
 using Sharc.Core.Models.Entities;
 
-namespace Sharc.Core.Repositories; 
+namespace Sharc.Server.Core.Repositories; 
 
 public interface IUserRepository {
 

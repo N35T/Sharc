@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Sharc.Core\Sharc.Core.csproj" />
+      <ProjectReference Include="..\Sharc.Server.Core\Sharc.Server.Core.csproj" />
     </ItemGroup>
 
     <ItemGroup>

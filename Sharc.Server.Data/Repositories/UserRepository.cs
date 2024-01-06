@@ -2,7 +2,7 @@
 using Sharc.Core.Abstractions;
 using Sharc.Core.Exceptions;
 using Sharc.Core.Models.Entities;
-using Sharc.Core.Repositories;
+using Sharc.Server.Core.Repositories;
 using Sharc.Server.Data.Persistence;
 
 namespace Sharc.Server.Data.Repositories; 

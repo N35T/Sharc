@@ -18,6 +18,8 @@ public class Event : ICalendarFormatter {
     public DateTime EndTime { get; set; }
     // DTSTART
     public DateTime StartTime { get; set; }
+
+    public bool IsAllDay { get; set; }
     
     // RRULE
     public RecurrenceRule? RecurrenceRule { get; set; }
@@ -39,8 +41,8 @@ public class Event : ICalendarFormatter {
                 BEGIN:VEVENT
                 UID:{Id}
                 DTSTAMP:{Created.ToRFCTimeString()}
-                DTSTART:{StartTime.ToRFCTimeString()}
-                DTEND:{EndTime.ToRFCTimeString()}
+                DTSTART{(IsAllDay ? ";VALUE=DATE" : "")}:{StartTime.ToRFCTimeString(IsAllDay)}
+                DTEND{(IsAllDay ? ";VALUE=DATE" : "")}:{EndTime.ToRFCTimeString(IsAllDay)}
                 SUMMARY:{Summary.Replace("\r\n", "\\n").Replace("\n", "\\n")}
                 DESCRIPTION:{Description.Replace("\r\n", "\\n").Replace("\n", "\\n")}
                 TRANSP:TRANSPARENT

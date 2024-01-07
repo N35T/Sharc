@@ -8,14 +8,29 @@
 
     <scheduler:SfScheduler
         x:Name="Scheduler"
+        AppointmentsSource="{Binding MappedEvents}"
         ShowWeekNumber="True"
         FirstDayOfWeek="Monday"
         AllowedViews="Day,Week,Month,Agenda"
-        View="Month"
-        QueryAppointments="QueryAppointmentHandler"
+        View="Month" AllowViewNavigation="True"
+        
         >
         <!--https://www.syncfusion.com/forums/184292/where-is-scheduler-adding-editing-appointment-docs-demo-->
         <!--https://www.syncfusion.com/tutorial-videos/maui/scheduler-->
-        
+        <scheduler:SfScheduler.AppointmentMapping>
+            <scheduler:SchedulerAppointmentMapping
+                Subject="Summary"
+                StartTime="StartTime"
+                EndTime="EndTime"
+                IsAllDay="IsAllDay"
+                />
+            <!--TextColorMapping="TextColor"-->
+            <!--StartTimeZone="StartTimeZone"-->
+            <!--EndTimeZone="EndTimeZone"-->
+            <!--Background="Background"-->
+
+        </scheduler:SfScheduler.AppointmentMapping>
+
+
     </scheduler:SfScheduler>
 </ContentPage>

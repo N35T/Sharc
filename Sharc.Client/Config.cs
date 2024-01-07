@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 namespace Sharc.Client {
     public static class Config {
 
-        public const string SharcServerUrl = "https://localhost/7197";
+        public const string SharcServerUrl = "https://localhost:7197";
     }
 }

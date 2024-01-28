@@ -1,6 +1,8 @@
 # Sharc
 
 Sharc is a selfhosted shared calendar system.
+> [!Note]
+> This app is still in early development and is not ready for production yet!
 
 ### Application
 Sharc is provided as a .NET MAUI Application and can be deployed to Android, IOS, Windows, and Mac.
